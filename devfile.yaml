@@ -44,6 +44,10 @@ components:
           protocol: tcp
           targetPort: 4566
 
+      volumeMounts:
+        - name: localstack-volume
+          path: /tmp/localstack
+
   - name: mongo
     container:
       image: quay.io/eclipse/che--centos--mongodb-36-centos7:latest-ffdf2431bbc6d9a9d2a03e95bbbe8adb49ab9eac301f268a35038c84288259c1
@@ -78,6 +82,10 @@ components:
   - name: mongodbdata
     volume:
       size: 256Mi
+
+  - name: localstack-volume
+    volume:
+      size: 512Mi
 
 commands:
   - id: maven-build-backend
