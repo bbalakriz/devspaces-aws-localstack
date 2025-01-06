@@ -31,6 +31,12 @@ components:
     container:
       image: localstack/localstack:latest
       memoryLimit: 1Gi
+      env:
+        - name: LOCALSTACK_VOLUME_DIR
+          value: "/tmp/localstack"
+
+        - name: SERVICES
+          value: s3
 
       endpoints:
         - name: localstack
