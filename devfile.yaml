@@ -28,6 +28,11 @@ components:
           path: /home/user/.m2
 
   - name: localstack
+    attributes:
+      pod-overrides:
+        spec:
+          serviceAccountName: localstack
+
     container:
       image: localstack/localstack:latest
       memoryLimit: 1Gi
