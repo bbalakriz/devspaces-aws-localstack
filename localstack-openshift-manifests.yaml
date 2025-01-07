@@ -164,3 +164,42 @@ subjects:
   - kind: ServiceAccount
     name: localstack
     namespace: localstack
+---
+# test deployment to provide terminal for running aws cli and test out localstack commands
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+  labels:
+    app: ubi-awscli
+  name: ubi-awscli
+  namespace: localstack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ubi-awscli
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: ubi-awscli
+        deployment: ubi-awscli
+    spec:
+      containers:
+      - command:
+        - sleep
+        - infinity
+        image: 
+        imagePullPolicy: Always
+        name: ubi-awscli
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        terminationMessagePolicy: File
+
