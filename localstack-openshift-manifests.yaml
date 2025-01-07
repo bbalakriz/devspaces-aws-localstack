@@ -103,7 +103,7 @@ spec:
       containers:
         - name: localstack
           securityContext: {}
-          image: "<localstack/localstack:latest image-ref>"
+          image: "localstack/localstack:latest"
           imagePullPolicy: IfNotPresent
           ports:
             - name: edge
