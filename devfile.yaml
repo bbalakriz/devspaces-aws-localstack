@@ -1,6 +1,6 @@
 schemaVersion: 2.2.2
 metadata:
-  name: java-guestbook
+  generateName: java-guestbook
 attributes:
   pod-overrides:
     spec:
