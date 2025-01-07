@@ -5,6 +5,9 @@ attributes:
   pod-overrides:
     spec:
       serviceAccountName: localstack  
+      securityContext:
+        seLinuxOptions:
+          level: 's0:c27,c9'
 components:
   - name: tools
     container:
@@ -36,9 +39,6 @@ components:
       image: localstack/localstack:latest
       memoryLimit: 1Gi
       env:
-        - name: LOCALSTACK_VOLUME_DIR
-          value: "/tmp/localstack"
-
         - name: SERVICES
           value: s3
 
@@ -47,10 +47,6 @@ components:
           exposure: public
           protocol: tcp
           targetPort: 4566
-
-      volumeMounts:
-        - name: localstack-volume
-          path: /tmp/localstack
 
   - name: mongo
     container:
