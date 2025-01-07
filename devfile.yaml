@@ -1,6 +1,10 @@
 schemaVersion: 2.2.2
 metadata:
   name: java-guestbook
+attributes:
+  pod-overrides:
+    spec:
+      serviceAccountName: localstack  
 components:
   - name: tools
     container:
@@ -28,11 +32,6 @@ components:
           path: /home/user/.m2
 
   - name: localstack
-    attributes:
-      pod-overrides:
-        spec:
-          serviceAccountName: localstack
-
     container:
       image: localstack/localstack:latest
       memoryLimit: 1Gi
