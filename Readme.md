@@ -1,5 +1,5 @@
 # Build custom image for localstack using the Dockerfile 
-This is required as the permissions for the /.cache folder in the default localstack image is owned by root and containers running on OpenShift are non root. 
+This is required as the permissions for the /.cache folder in the container image `localstack/localstack:stable` is owned by root user and containers running on OpenShift are non root. To enable non root users to run the container image, the custom image build would be required. 
 
 ```
 podman build -t quay.io/balki404/localstack:stable .
