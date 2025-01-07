@@ -36,7 +36,7 @@ components:
 
   - name: localstack
     container:
-      image: localstack/localstack:latest
+      image: quay.io/balki404/localstack:stable
       memoryLimit: 1Gi
       env:
         - name: SERVICES
