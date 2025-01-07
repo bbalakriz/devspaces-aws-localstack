@@ -1,13 +1,13 @@
 schemaVersion: 2.2.2
 metadata:
   generateName: java-guestbook
-attributes:
-  pod-overrides:
-    spec:
-      serviceAccountName: localstack  
-      securityContext:
-        seLinuxOptions:
-          level: 's0:c27,c9'
+# attributes:
+#   pod-overrides:
+#     spec:
+#       serviceAccountName: localstack  
+#       securityContext:
+#         seLinuxOptions:
+#           level: 's0:c27,c9'
 components:
   - name: tools
     container:
